@@ -1,7 +1,6 @@
 from pathlib import Path
 from unittest.mock import Mock
 
-from inspect import getsource
 import pytest
 from functools import partial
 
