@@ -178,7 +178,7 @@ def _boxplot_stats(conn, table, column, whis=1.5, autorange=False, with_=None):
 # https://github.com/matplotlib/matplotlib/blob/ddc260ce5a53958839c244c0ef0565160aeec174/lib/matplotlib/axes/_axes.py#L3915
 @requires(["matplotlib"])
 def boxplot(
-    payload, table, column, *, orient="v", with_=None, conn=None, ax=None, schema=None
+    table, column, *, orient="v", with_=None, conn=None, ax=None, schema=None
 ):
     """Plot boxplot
 
@@ -228,8 +228,6 @@ def boxplot(
     """
     if not conn:
         conn = sql.connection.ConnectionManager.current
-
-    payload["connection_info"] = conn._get_database_information()
 
     _table = enclose_table_with_double_quotations(table, conn)
     if schema:
@@ -315,7 +313,6 @@ def _get_bar_width(ax, bins, bin_size, binwidth):
 
 @requires(["matplotlib"])
 def histogram(
-    payload,
     table,
     column,
     bins,
@@ -406,7 +403,6 @@ def histogram(
         _table = f'"{schema}"."{_table}"'
 
     ax = ax or plt.gca()
-    payload["connection_info"] = conn._get_database_information()
     if category:
         if isinstance(column, list):
             if len(column) > 1:
@@ -872,7 +868,6 @@ def _bar(table, column, with_=None, conn=None):
 
 @requires(["matplotlib"])
 def bar(
-    payload,
     table,
     column,
     show_num=False,
@@ -924,7 +919,6 @@ def bar(
         _table = f'"{schema}"."{_table}"'
 
     ax = ax or plt.gca()
-    payload["connection_info"] = conn._get_database_information()
 
     if column is None:
         raise exceptions.UsageError("Column name has not been specified")
@@ -1056,7 +1050,6 @@ def _pie(table, column, with_=None, conn=None):
 
 @requires(["matplotlib"])
 def pie(
-    payload,
     table,
     column,
     show_num=False,
@@ -1102,7 +1095,6 @@ def pie(
         _table = f'"{schema}"."{_table}"'
 
     ax = ax or plt.gca()
-    payload["connection_info"] = conn._get_database_information()
 
     if column is None:
         raise exceptions.UsageError("Column name has not been specified")

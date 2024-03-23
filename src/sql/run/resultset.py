@@ -245,9 +245,8 @@ class ResultSet(ColumnGuesserMixin):
         for row in self:
             yield dict(zip(self.keys, row))
 
-    def DataFrame(self, payload):
+    def DataFrame(self):
         """Returns a Pandas DataFrame instance built from the result set."""
-        payload["connection_info"] = self._conn._get_database_information()
         import pandas as pd
 
         return _convert_to_data_frame(self, "df", pd.DataFrame)

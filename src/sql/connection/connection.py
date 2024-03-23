@@ -989,12 +989,7 @@ class DBAPIConnection(AbstractConnection):
 
     is_dbapi_connection = True
 
-    def __init__(self, payload, connection, alias=None, config=None):
-        try:
-            payload["engine"] = type(connection)
-        except Exception as e:
-            payload["engine_parsing_error"] = str(e)
-
+    def __init__(self, connection, alias=None, config=None):
         # detect if the engine is a native duckdb connection
         _is_duckdb_native = _check_if_duckdb_dbapi_connection(connection)
 
@@ -1082,11 +1077,7 @@ class DBAPIConnection(AbstractConnection):
 class SparkConnectConnection(AbstractConnection):
     is_dbapi_connection = False
 
-    def __init__(self, payload, connection, alias=None, config=None):
-        try:
-            payload["engine"] = type(connection)
-        except Exception as e:
-            payload["engine_parsing_error"] = str(e)
+    def __init__(self, connection, alias=None, config=None):
         self._driver = None
 
         # TODO: implement the dialect blacklist and add unit tests

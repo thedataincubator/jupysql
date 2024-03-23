@@ -367,7 +367,7 @@ class SqlMagic(Magics, Configurable):
         )
 
     @modify_exceptions
-    def _execute(self, payload, line, cell, local_ns, is_interactive_mode=False):
+    def _execute(self, line, cell, local_ns, is_interactive_mode=False):
         """
         This function implements the cell logic; we create this private
         method so we can control how the function is called. Otherwise,
@@ -513,7 +513,6 @@ class SqlMagic(Magics, Configurable):
             alias=args.section if args.section else args.alias,
             config=self,
         )
-        payload["connection_info"] = conn._get_database_information()
 
         if args.persist_replace and args.append:
             raise exceptions.UsageError(
