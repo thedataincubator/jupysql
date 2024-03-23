@@ -10,7 +10,6 @@ import warnings
 
 from sql.column_guesser import ColumnGuesserMixin
 from sql.run.csv import CSVWriter, CSVResultDescriptor
-from sql.telemetry import telemetry
 from sql.run.table import CustomPrettyTable
 from sql._current import _config_feedback_all
 
@@ -246,7 +245,6 @@ class ResultSet(ColumnGuesserMixin):
         for row in self:
             yield dict(zip(self.keys, row))
 
-    @telemetry.log_call("data-frame", payload=True)
     def DataFrame(self, payload):
         """Returns a Pandas DataFrame instance built from the result set."""
         payload["connection_info"] = self._conn._get_database_information()
@@ -254,7 +252,6 @@ class ResultSet(ColumnGuesserMixin):
 
         return _convert_to_data_frame(self, "df", pd.DataFrame)
 
-    @telemetry.log_call("polars-data-frame")
     def PolarsDataFrame(self, **polars_dataframe_kwargs):
         """Returns a Polars DataFrame instance built from the result set."""
         import polars as pl
@@ -262,7 +259,6 @@ class ResultSet(ColumnGuesserMixin):
         polars_dataframe_kwargs["schema"] = self.keys
         return _convert_to_data_frame(self, "pl", pl.DataFrame, polars_dataframe_kwargs)
 
-    @telemetry.log_call("pie")
     def pie(self, key_word_sep=" ", title=None, **kwargs):
         """Generates a pylab pie chart from the result set.
 
@@ -302,7 +298,6 @@ class ResultSet(ColumnGuesserMixin):
         ax.set_title(title or self.ys[0].name)
         return ax
 
-    @telemetry.log_call("plot")
     def plot(self, title=None, **kwargs):
         """Generates a pylab plot from the result set.
 
@@ -349,7 +344,6 @@ class ResultSet(ColumnGuesserMixin):
 
         return ax
 
-    @telemetry.log_call("bar")
     def bar(self, key_word_sep=" ", title=None, **kwargs):
         """Generates a pylab bar plot from the result set.
 
@@ -393,7 +387,6 @@ class ResultSet(ColumnGuesserMixin):
         ax.set_ylabel(self.ys[0].name)
         return ax
 
-    @telemetry.log_call("generate-csv")
     def csv(self, filename=None, **format_params):
         """Generate results in comma-separated form.  Write to ``filename`` if given.
         Any other parameters will be passed on to csv.writer."""

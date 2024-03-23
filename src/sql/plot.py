@@ -29,7 +29,6 @@ except ModuleNotFoundError:
     np = None
 
 import sql.connection
-from sql.telemetry import telemetry
 import warnings
 
 
@@ -178,7 +177,6 @@ def _boxplot_stats(conn, table, column, whis=1.5, autorange=False, with_=None):
 
 # https://github.com/matplotlib/matplotlib/blob/ddc260ce5a53958839c244c0ef0565160aeec174/lib/matplotlib/axes/_axes.py#L3915
 @requires(["matplotlib"])
-@telemetry.log_call("boxplot", payload=True)
 def boxplot(
     payload, table, column, *, orient="v", with_=None, conn=None, ax=None, schema=None
 ):
@@ -316,7 +314,6 @@ def _get_bar_width(ax, bins, bin_size, binwidth):
 
 
 @requires(["matplotlib"])
-@telemetry.log_call("histogram", payload=True)
 def histogram(
     payload,
     table,
@@ -874,7 +871,6 @@ def _bar(table, column, with_=None, conn=None):
 
 
 @requires(["matplotlib"])
-@telemetry.log_call("bar", payload=True)
 def bar(
     payload,
     table,
@@ -1059,7 +1055,6 @@ def _pie(table, column, with_=None, conn=None):
 
 
 @requires(["matplotlib"])
-@telemetry.log_call("bar", payload=True)
 def pie(
     payload,
     table,

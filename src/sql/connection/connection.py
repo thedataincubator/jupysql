@@ -26,7 +26,6 @@ from ploomber_core.exceptions import modify_exceptions
 
 
 from sql.store import store
-from sql.telemetry import telemetry
 from sql import exceptions, display
 from sql.error_handler import handle_exception
 from sql.parse import (
@@ -990,7 +989,6 @@ class DBAPIConnection(AbstractConnection):
 
     is_dbapi_connection = True
 
-    @telemetry.log_call("DBAPIConnection", payload=True)
     def __init__(self, payload, connection, alias=None, config=None):
         try:
             payload["engine"] = type(connection)
@@ -1084,7 +1082,6 @@ class DBAPIConnection(AbstractConnection):
 class SparkConnectConnection(AbstractConnection):
     is_dbapi_connection = False
 
-    @telemetry.log_call("SparkConnectConnection", payload=True)
     def __init__(self, payload, connection, alias=None, config=None):
         try:
             payload["engine"] = type(connection)
