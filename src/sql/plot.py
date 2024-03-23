@@ -177,9 +177,7 @@ def _boxplot_stats(conn, table, column, whis=1.5, autorange=False, with_=None):
 
 # https://github.com/matplotlib/matplotlib/blob/ddc260ce5a53958839c244c0ef0565160aeec174/lib/matplotlib/axes/_axes.py#L3915
 @requires(["matplotlib"])
-def boxplot(
-    table, column, *, orient="v", with_=None, conn=None, ax=None, schema=None
-):
+def boxplot(table, column, *, orient="v", with_=None, conn=None, ax=None, schema=None):
     """Plot boxplot
 
     Parameters
