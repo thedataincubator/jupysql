@@ -25,10 +25,8 @@ install_requires = [
     "jinja2",
     "sqlglot>=11.3.7",
     'importlib-metadata;python_version<"3.8"',
-    # we removed the share notebook button in this version
-    "jupysql-plugin>=0.4.2",
+    "jupysql-plugin @ https://github.com/thedataincubator/jupysql-plugin-tdi/releases/download/v2024.04.02/jupysql_plugin-2024.04.02-py3-none-any.whl",
     "ploomber-core>=0.2.7",
-    "ploomber-extension",
 ]
 
 DEV = [
