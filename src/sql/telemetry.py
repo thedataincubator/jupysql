@@ -16,4 +16,5 @@ telemetry = Telemetry(
     api_key="phc_P9SpSeypyPwxrMdFn2edOOEooQioF2axppyEeDwtMSP",
     package_name="jupysql",
     version=version("jupysql"),
+    print_cloud_message=False,
 )
