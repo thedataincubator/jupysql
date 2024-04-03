@@ -509,11 +509,7 @@ autocommit = true
 
     ip.run_cell("%load_ext sql")
     out, _ = capsys.readouterr()
-    assert (
-        "The 'toml' package isn't installed. "
-        "To load settings from pyproject.toml or ~/.jupysql/config, "
-        "install with: pip install toml"
-    ) in out
+    assert not out
 
 
 @pytest.mark.parametrize(
