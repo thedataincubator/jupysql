@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "$(python3 -c 'import tomllib; f = open("pyproject.toml", "rb"); print(tomllib.load(f)["metadata"]["version_tdi"])')"

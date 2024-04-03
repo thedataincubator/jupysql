@@ -1,0 +1,14 @@
+#!/bin/bash
+
+TAG="$(git tag --contains HEAD)"
+VERSION=v"$(bin/print-version)"
+
+if [[ "$TAG" == "$VERSION" ]]; then
+  echo "Tag and version in version-tdi.json match!"
+  exit 0
+else
+  echo "Tag and version in version-tdi.json don't match!"
+  echo "Tag: "$TAG""
+  echo "Version: "$VERSION""
+  exit 1
+fi
