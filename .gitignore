@@ -67,7 +67,7 @@ nosetests.xml
 
 venv
 .venv
-
+.make*
 
 # Do not include test output of matplotlib
 result_images
