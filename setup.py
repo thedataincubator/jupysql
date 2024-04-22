@@ -26,7 +26,7 @@ install_requires = [
     "jinja2",
     "sqlglot>=11.3.7",
     'importlib-metadata;python_version<"3.8"',
-    "jupysql-plugin @ https://github.com/thedataincubator/jupysql-plugin-tdi/releases/download/v2024.04.02/jupysql_plugin-2024.04.02-py3-none-any.whl",
+    "jupysql-plugin @ https://github.com/thedataincubator/jupysql-plugin/releases/download/v2024.04.22/jupysql_plugin-2024.04.22-py3-none-any.whl",
     "ploomber-core>=0.2.7",
 ]
 
