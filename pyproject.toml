@@ -1,5 +1,5 @@
 [metadata]
-version_tdi = "2024.04.22"
+version_tdi = "2024.04.30"
 
 [tool.pytest.ini_options]
 addopts = "--pdbcls=IPython.terminal.debugger:Pdb"
