@@ -13,7 +13,7 @@ def check_telemetry_enabled():
 
 telemetry.check_telemetry_enabled = check_telemetry_enabled
 telemetry = Telemetry(
-    api_key="phc_P9SpSeypyPwxrMdFn2edOOEooQioF2axppyEeDwtMSP",
+    api_key="none",
     package_name="jupysql",
     version=version("jupysql"),
     print_cloud_message=False,
