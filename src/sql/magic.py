@@ -126,7 +126,7 @@ class SqlMagic(Magics, Configurable):
         default_value=True, config=True, help="Show connection string after execution"
     )
     displaylimit = Int(
-        default_value=10,
+        default_value=100,
         config=True,
         allow_none=True,
         help=(
