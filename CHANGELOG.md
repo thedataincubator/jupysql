@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.10.12dev
+## 0.10.12 (2024-07-12)
 
 * [Feature] Remove sqlalchemy upper bound ([#1020](https://github.com/ploomber/jupysql/pull/1020))
 
