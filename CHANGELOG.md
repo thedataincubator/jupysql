@@ -1,6 +1,14 @@
 # CHANGELOG
 
-## 0.10.11dev
+## 0.10.13dev
+
+## 0.10.12 (2024-07-12)
+
+* [Feature] Remove sqlalchemy upper bound ([#1020](https://github.com/ploomber/jupysql/pull/1020))
+
+## 0.10.11 (2024-07-03)
+
+* [Fix] Fix error when connections.ini contains a `query` value as dictionary ([#1015](https://github.com/ploomber/jupysql/issues/1015))
 
 ## 0.10.10 (2024-02-07)
 
